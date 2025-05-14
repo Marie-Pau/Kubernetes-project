@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      name: frontend
+  template:
+    metadata:
+      name: kanban-ui
+      labels: 
+        name: frontend
+    spec: 
+      containers: 
+        - name: frontend-container
+          image: wkrzywiec/kanban-ui:k8s
+          ports:
+          - containerPort: 80
+          
+
+          
